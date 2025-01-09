@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+        body {
+            background-color: #131313; /* Dark background color */
+            color: #ffffff; /* Light text color */
+            font-family: 'Arial', sans-serif; /* Choose an appropriate font */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #317e63; /* Accent color for the header */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto; /* Adjust the margin as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow for the image */
+        }
+    </style>
+</head>
+<body>
+    <h1>Generated Image</h1>
+
+    <!-- <img src="{{ uploaded_image_path }}" alt="Uploaded Image"> -->
+    <img src="{{ generated_image_path }}" alt="Generated Image">
+</body>
+</html>

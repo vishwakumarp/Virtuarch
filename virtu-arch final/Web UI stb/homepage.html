@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #F1EFE7, #f0e4b3);
+            flex-direction: column; /* Align items vertically */
+        }
+
+         .logo-container {
+            margin-top: -550px;
+            text-align: center; /* Center-align the logo */
+            margin-bottom: 170px; /* Reduce the space between the logo and product name */
+        }
+
+        .logo {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo img {
+            max-width: 100%; /* Ensures the image is responsive */
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo img:hover {
+            transform: scale(1.15);
+        }
+
+        .product-name {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+            margin-top: -350px; /* Adjust the margin to position it just under the logo */
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centers the nav items */
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px; /* Controls spacing between nav items */
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="logo-container">
+        <div class="logo">
+            <img src="logo-main.png" alt="Website Logo" />
+        </div>
+    </div>
+    <div class="product-name">
+        VirtualArch: Image-Driven Architectural Transformation
+    </div>
+</body>
+</html>

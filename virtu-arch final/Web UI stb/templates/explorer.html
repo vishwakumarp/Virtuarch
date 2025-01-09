@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diffusion Model</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 0;
+        margin: 0;
+        background: linear-gradient(to bottom right, #f2f2f2, #c0c0c0);
+    }
+    .taskbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #333;
+        color: white;
+    }
+    .taskbar-logo img {
+        width: 100px;
+    }
+    .container-wrapper {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    .container-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    .container {
+        display: flex;
+        width: 200%;
+        white-space: nowrap;
+    }
+    .cell {
+        flex: 0 0 33.33%;
+        box-sizing: border-box;
+        margin: 0 8px;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: hidden;
+        background-color: #d3c576;
+        background-image:  #d3c576;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    .cell:hover {
+        transform: translateY(-5px);
+    }
+    .description {
+        margin-top: 10px;
+        text-align: center;
+    }
+    .image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+        padding-left: 20%;
+        padding-right: 20%;
+        margin-bottom: 10px;
+    }
+    .image-container img {
+        max-width: 80%;
+        height: auto;
+        margin: 0 10px;
+    }
+    .common-title {
+        text-align: center;
+        font-size: 18px;
+        margin-top: 10px;
+        color: #333;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+    .input-output {
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    .input-output span {
+        font-weight: bold;
+    }
+    .heading {
+        text-align: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #333;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    }
+</style>
+</head>
+<body>
+<div class="taskbar">
+    <div class="taskbar-logo">
+        <img src="../../static/logo-main.png" alt="Logo">
+    </div>
+    <div>
+        <!-- Add any other taskbar elements here -->
+    </div>
+</div>
+<div class="heading">
+    <p>Explore the models of stable diffusion developed</p>
+</div>
+<div class="container-wrapper">
+    <div class="container">
+        <div class="cell">
+            <div class="image-container">
+                <img src="../../../Interior design/bedroom.jpg" alt="Input Image 1">
+                <img src="../../../Interior design/romanbedroom.png" alt="Output Image 1">
+            </div>
+            <div class="description">
+                <div class="common-title">Stable Diffusion Model</div>
+                <div class="input-output">
+                    <span>Input:</span> Description of Input 1<br>
+                    <span>Output:</span> Description of Output 1
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="image-container">
+                <img src="../../../Interior design/bedroom.jpg" alt="Input Image 2">
+                <img src="../../../Interior design/romanbedroom.png" alt="Output Image 2">
+            </div>
+            <div class="description">
+                <div class="common-title">Stable Diffusion Model</div>
+                <div class="input-output">
+                    <span>Input:</span> Description of Input 2<br>
+                    <span>Output:</span> Description of Output 2
+                </div>
+            </div>
+        </div>
+        <div class="cell">
+            <div class="image-container">
+                <img src="../../../Interior design/bedroom.jpg" alt="Input Image 3">
+                <img src="../../../Interior design/romanbedroom.png" alt="Output Image 3">
+            </div>
+            <div class="description">
+                <div class="common-title">Stable Diffusion Model</div>
+                <div class="input-output">
+                    <span>Input:</span> Description of Input 3<br>
+                    <span>Output:</span> Description of Output 3
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

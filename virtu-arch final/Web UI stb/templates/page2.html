@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Include the styles for the form */
+        /* Styles from the original form */
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #7899c1, #e0eef5);
+            overflow: auto;
+        }
+
+        .form-container {
+            border: 2px solid #888;
+            /* Darken the border color */
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            /* Add shadow to the border */
+            width: 100%;
+            /* Set width to auto to allow it to expand */
+            max-width: 500px;
+            transition: transform 0.3s ease-in-out;
+            margin: 65px auto 0;
+            /* Centers the form horizontally */
+            margin-left: 20px;
+            /* Keeps the form towards the left */
+            margin-right: auto;
+            /* Centers the form horizontally */
+            background: transparent;
+            /* Set background to transparent */
+        }
+
+        .form-container.active {
+            transform: scale(1.02);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: 600;
+            margin: 15px 0 5px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="number"],
+        input[type="range"],
+        button {
+            padding: 15px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 2px solid #e1e1e1;
+            width: 100%;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        input[type="file"]::file-selector-button,
+        button {
+            cursor: pointer;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="file"]::file-selector-button {
+            padding: 10px;
+            margin-right: 10px;
+            background-color: #eee;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #ddd;
+        }
+
+        /* Additional styles for responsiveness */
+        @media (max-width: 600px) {
+            .form-container {
+                max-width: calc(100% - 40px);
+                /* Adjust margin for smaller screens */
+                margin-left: auto;
+                /* Reset margin-left for smaller screens */
+                margin-right: auto;
+                /* Centers the form horizontally on smaller screens */
+            }
+        }
+
+        /* Styles for the logo */
+        .logo img {
+            width: 170px;
+            /* Set the desired width for the logo */
+            height: 170px;
+            /* Maintain aspect ratio */
+            position: absolute;
+            top: -45px;
+            bottom: 20px;
+            /* Adjust this value to position the logo vertically */
+            left: -10px;
+            /* Adjust this value to position the logo horizontally */
+        }
+
+        /* Styles for the result page */
+        .result-container {
+            margin-top: 800px;
+            margin-left: 20px;
+            /* Keep the result beside the form */
+            flex: 1;
+            /* Allow the result to grow and take remaining space */
+            display: none;
+            /* Initially hide the result container */
+        }
+
+        h1 {
+            color: #000000;
+            /* Accent color for the header */
+            text-align: center;
+            /* Center the header */
+        }
+
+        img.result-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            /* Adjust the margin as needed */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            /* Box shadow for the image */
+        }
+
+        /* Styles for the range value textbox */
+        .range-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .range-value {
+            margin-left: 10px;
+            /* Adjust spacing between range input and textbox */
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            min-width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../../static/logo-main.png" alt="Website Logo">
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-container">
+        <!-- This section is discarded -->
+        </div>
+    </section>
+
+    <!-- Place the form here -->
+    <div class="form-container" id="formContainer">
+        <form id="imageStyleForm" action="/submit" method="post" enctype="multipart/form-data">
+            <label for="imageUpload">Upload your image:</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+
+            <label for="styleDescription">Prompt or Style Description:</label>
+            <input type="text" id="styleDescription" name="styleDescription"
+                placeholder="Enter prompt or style description..." required>
+
+            <label for="strength" class="range-container">Strength (0.0 - 1.0):</label>
+            <label>
+                <input type="range" id="strength" name="strength" min="0" max="1" step="0.01" value="0.4" required>
+                <span class="range-value" id="strengthValue">0.4</span>
+            </label>
+
+            <label for="guidanceScale" class="range-container">Guidance Scale: (0 - 20)</label>
+            <label>
+                <input type="range" id="guidanceScale" name="guidanceScale" min="0" max="20" step="0.1" value="7.9"
+                    required>
+                <span class="range-value" id="guidanceScaleValue">7.9</span>
+            </label>
+
+            <label for="numInferenceSteps" class="range-container">Number of Inference Steps: (50 - 1000)</label>
+            <label>
+                <input type="range" id="numInferenceSteps" name="numInferenceSteps" min="50" max="1000" step="1" value="150"
+                    required>
+                <span class="range-value" id="numInferenceStepsValue">150</span>
+            </label>
+            <input type="hidden" name="sourcePage" value="page2">
+            <button id="transformImageButton" type="submit">Transform Image</button>
+        </form>
+    </div>
+
+    <!-- Result page -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gretta&display=swap');
+    
+        .result-container h1 {
+            font-family: 'Gretta', sans-serif; /* Default font family for all h1 elements within .result-container */
+        }
+    </style>
+    
+    <div class="result-container" id="resultContainer">
+        <h1>Uploaded Image</h1>
+        <img id="uploadedImage" src="" class="result-image" alt="Uploaded Image">
+    
+        <h1>Generated Image</h1>
+        <img id="generatedImage" src="" class="result-image" alt="Generated Image">
+    </div>
+
+    <script>
+        let uploaded_image_name = "";
+        let generated_image_name = "";
+        function updateImageSources(uploaded_image_name, generated_image_name) {
+        document.getElementById('uploadedImage').src = `/static/uploads/${uploaded_image_name}`;
+        document.getElementById('generatedImage').src = `/static/generated_images/${generated_image_name}`;
+        }
+        
+
+
+       const resultContainer = document.getElementById('resultContainer');
+
+        // Listen for click event on the "Transform Image" button
+        document.getElementById('transformImageButton').addEventListener('click', (event) => {
+
+            // Show the result container
+
+
+            // You may want to perform other actions like AJAX submission here
+            // For now, just show the alert
+            showAlert();
+            document.getElementById('imageStyleForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+            // Show the result container
+
+            var gen_path = "{{ gen_path }}";
+            console.log(gen_path);
+
+            setTimeout(delayedAction, 30000);
+            function delayedAction() {
+
+            resultContainer.style.display = 'block';
+        }
+
+
+            // Fetch form data
+            const formData = new FormData(event.target);
+
+            // Submit form data using Fetch API
+            try {
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                // Extract JSON data from response
+                const responseData = await response.json();
+
+                uploaded_image_name = responseData.uploaded_image_name;
+                generated_image_name = responseData.generated_image_name;
+                console.log(uploaded_image_name);
+                console.log(generated_image_name);
+
+                updateImageSources(uploaded_image_name,generated_image_name);
+  
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        });
+        });
+
+
+
+        /// Update range value textboxes
+        const rangeInputs = document.querySelectorAll('input[type="range"]');
+        rangeInputs.forEach(input => {
+            const valueElement = document.getElementById(`${input.id}Value`); // corrected here
+            valueElement.textContent = input.value;
+
+            input.addEventListener('input', () => {
+                valueElement.textContent = input.value;
+            });
+        });
+
+        function showAlert() {
+            alert('Form submitted!');
+        }
+
+
+        // Update range value textboxes
+
+    </script>
+</body>
+
+</html>

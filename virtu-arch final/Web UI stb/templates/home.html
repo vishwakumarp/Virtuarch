@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+
+        body {
+            font-family: 'League Spartan', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            /* Remove overflow: hidden; to enable scrolling */
+            flex-direction: column; /* Align items vertically */
+            background: linear-gradient(34deg, #f1efe7, #9593d9, #76b8ad, #fb999b, #f586a2);
+            background-size: 1000% 1000%;
+            animation: AnimationName 7s ease infinite;
+        }
+
+        @keyframes AnimationName {
+            0%{background-position:0% 26%}
+            50%{background-position:100% 75%}
+            100%{background-position:0% 26%}
+        }
+
+        .logo-container {
+            text-align: center; /* Center-align the logo */
+            margin-bottom: 170px; /* Reduce the space between the logo and product name */
+            margin-top: -30px;
+        }
+
+        .logo img {
+            max-width: 100%; /* Ensure the logo scales proportionally */
+            height: auto;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .logo img:hover {
+            transform: scale(1.15);
+        }
+
+        .product-name {
+            text-align: center;
+            font-size: 24px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 10px; /* Adjust the margin to provide space below the text */
+            margin-top: -350px
+        }
+
+        nav {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centers the nav items */
+            padding: 20px 0;
+            box-sizing: border-box;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 15px; /* Controls spacing between nav items */
+        }
+
+        nav a:hover {
+            color: #007bff;
+        }
+
+        /* Navigation Boxes */
+        .navigation-boxes {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .box {
+            width: 250px; /* Increase the width */
+            height: 250px; /* Increase the height */
+            background-color: #007bff;
+            border-radius: 10px;
+            margin: 70px 25px; /* Add margin to separate the boxes */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .box:hover {
+            background-color: #0056b3;
+        }
+
+        .box h3 {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Box 1 Background Image */
+        .box1 {
+            background-image: url('https://foyr.com/learn/wp-content/uploads/2021/12/choose-the-materials-for-interior-design.png'); /* Replace 'image_url_here' with the actual image URL */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Box 2 Background Image */
+        .box2 {
+            background-image: url('https://i.pinimg.com/originals/10/fd/50/10fd50c3b887fe4d900a4d22d336eadd.jpg'); /* Replace 'image2.jpg' with the relative path to your local image */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Box 3 Background Image */
+        .box3 {
+            background-image: url('https://i.pinimg.com/originals/bb/54/3e/bb543ef505d9bd502bbabb0a13d77df5.jpg'); /* Replace 'image3.jpg' with the relative path to your local image */
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* Change the color of "SketchTurbo" to black */
+        .box1 h3 {
+            color: white;
+            font-weight: bold; /* Increase the font weight */
+        }
+
+        /* Change the color of "SketchTurbo" to black */
+        .box2 h3 {
+            color: black;
+            font-weight: bold; /* Increase the font weight */
+        }
+
+         /* Change the color of "SketchTurbo" to black */
+         .box3 h3 {
+            color: black;
+            font-weight: bold; /* Increase the font weight */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="explore.html">Explore</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="logo-container">
+        <div class="logo">
+            <img src="https://i.pinimg.com/originals/eb/f4/e4/ebf4e4795cab92363d2bdbe975b9e355.png" alt="Website Logo" />
+        </div>
+    </div>
+    <div class="product-name">
+        VirtualArch: Image-Driven Architectural Transformation
+    </div>
+
+    <!-- Navigation Boxes -->
+<div class="navigation-boxes">
+    <div class="box box1" onclick="location.href='/page1';">
+        <h3>MatMorph</h3>
+    </div>
+    <div class="box box2" onclick="location.href='/page2';">
+        <h3>SketchTurbo</h3>
+    </div>
+    <div class="box box3" onclick="location.href='/page3';">
+        <h3>InteriorDefiner</h3>
+    </div>
+</div>
+</body>
+</html>

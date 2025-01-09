@@ -1,0 +1,115 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #56CCF2, #2F80ED);
+    overflow: hidden;
+    background: #333; /* Change the background color to a darker shade */
+}
+ 
+.form-container {
+    background-color: #333;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease-in-out;
+    margin: 0 auto; /* Centers the form horizontally */
+    margin-left: 20px; /* Adjust this value to move the form towards the left */
+}
+ 
+ 
+.form-container.active {
+    transform: scale(1.02);
+}
+ 
+form {
+    display: flex;
+    flex-direction: column;
+}
+ 
+label {
+    font-weight: 600;
+    margin: 15px 0 5px;
+    color: #333;
+}
+ 
+input[type="file"],
+input[type="text"],
+input[type="number"],
+button {
+    padding: 15px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 2px solid #e1e1e1;
+    width: 100%;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+ 
+input[type="file"]::file-selector-button,
+button {
+    cursor: pointer;
+}
+ 
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #007bff;
+}
+ 
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+ 
+button:hover {
+    background-color: #0056b3;
+}
+ 
+input[type="file"]::file-selector-button {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #eee;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+ 
+input[type="file"]::file-selector-button:hover {
+    background-color: #ddd;
+}
+ 
+/* Additional styles for responsiveness */
+@media (max-width: 600px) {
+    .form-container {
+        max-width: 100%;
+    }
+}
+ 
+ /* Add this CSS code to your existing styles.css file */
+ 
+.gradient-text {
+    background-color: red; /* Fallback color */
+    background-image: linear-gradient(45deg, #ff3333, #fff, #fff); /* Gradient colors */
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+ 
+ 
+ 
+ 
